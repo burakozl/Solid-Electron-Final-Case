@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userName": "burakozel",
+      "email": "burak@ozel.com",
+      "password": "12345678"
+    },
+    {
+      "userName": "alitoplu",
+      "email": "ali@ali.com",
+      "password": "12121212",
+      "id": 2
+    },
+    {
+      "userName": "Furkan Akpolat",
+      "email": "furkan@furkan.com",
+      "password": "35795123",
+      "id": 3
+    }
+  ]
+}
