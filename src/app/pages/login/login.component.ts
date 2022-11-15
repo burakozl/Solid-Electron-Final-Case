@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder:FormBuilder,//angular form oluşturmak için ilgili servis
     private toastr:ToastrService,//kullanıcı mesajlarını göstermek için yüklemiş olduğumuz npm paket..
-    private usersService:UsersService// user httpreq. işlemleri için oluşturulan servis..
+    private usersService:UsersService,// user httpreq. işlemleri için oluşturulan servis..
+    private router:Router
     ) { }
 
   ngOnInit(): void {
@@ -39,7 +41,8 @@ export class LoginComponent implements OnInit {
             this.toastr.error("Böyle bir hesap bulunamadı...","Sistem mesajı");
           }else{//ilgili data varsa
             if(res[0].password == this.loginForm.value.password){//girilen şifre get edilen data'nın şifresi ile aynı mı?
-              this.toastr.success("Başarılı bir şekilde giriş yapıldı...")
+              this.toastr.success("Başarılı bir şekilde giriş yapıldı...");
+              this.router.navigateByUrl('/home');
             }else{
               this.toastr.error("Email yada şifre hatalı...","Sistem mesajı");
             }
@@ -47,9 +50,6 @@ export class LoginComponent implements OnInit {
         },
         error: (err) => {
           console.log(err);//hata varsa consola bas
-        },
-        complete: () => {
-          //Todo:homepage yönlendir...
         }
       })
     }

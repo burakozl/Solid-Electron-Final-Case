@@ -18,5 +18,63 @@
       "password": "35795123",
       "id": 3
     }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "LG 65inc 4K UHD HDR LED webOS Smart TV",
+      "description": "4K Ultra HD (3840 x 2160) yerel çözünürlüğe sahip 6inc LED ekran, en sevdiğiniz filmleri, TV şovlarını ve diğer içerikleri gerçekçi görüntü kalitesiyle hayata geçirir.60HZ yenileme hızı, oyun ve filmlerinizde akıcı aksiyon ile gecikmesiz ve bulanık olmayan görseller sunar.Muhteşem ses ve video deneyimi için a5 Gen 5 AI işlemci tarafından desteklenen Smart TV teknolojisi.WebOS platformu, evinizin rahatlığında çok çeşitli çevrimiçi eğlence uygulamalarından içerik akışı yapmanıza yardımcı olacak sezgisel bir kullanıcı arayüzüne sahiptir.",
+      "price": 799.98,
+      "imageId": 1
+    },
+    {
+      "id": 2,
+      "name": "Sony MASTER 48inc 4K UHD HDR OLED Android OS Smart TV",
+      "description": "3840 x 2160 yerel çözünürlüğe sahip 48 inç 4K Ultra HD ekran, gerçekçi görsellerle inanılmaz görüntü kalitesi sunar.HDR1, Dolby Visions, IMAX Enhanced ve Netflix Kalibre Edilmiş Modu, ne izliyor veya oynuyor olursanız olun, sürükleyici eğlence için filmlerinizin ve TV şovlarınızın kalitesini artırır.Pixel Contrast Booster, OLED ekranda canlı renkler sunmak için her pikselin süper şarj edilmesini sağlar.4K X-Reality PRO ve Nesne Tabanlı Süper Çözünürlük doğal görünümlü görseller sağlar.Hızlı yanıt veren Özel Oyun Modu, pürüzsüz ve bulanık olmayan görsellerle PlayStation oyunlarınızın keyfini çıkarmanızı sağlar.",
+      "price": 999.98,
+      "imageId": 2
+    },
+    {
+      "id": 3,
+      "name": "TCL 4-Series 50inc 4K UHD HDR LED Smart Google TV",
+      "description": "50inc ekran, gerçekçi bir deneyim için Full HD çözünürlükten dört kat daha iyi 4K Ultra HD görüntüler görüntüler.Doğrudan aydınlatmalı LED ekrana sahip düz panel, yüksek kaliteli görüntü deneyimi için mükemmel parlaklık ve renk sunar.Yüksek Dinamik Aralık (HDR), kontrastı iyileştirir ve daha keskin ve tanımlı görüntüler sunar.60Hz yenileme hızı, hareket bulanıklığını azaltır ve muhteşem görüntüleri kristal netliğinde görmenizi sağlar.Dolby Digital Plus ses, ev sineması efektinizi geliştirmek için zengin ayrıntılarla muhteşem bir ses yaratır.YouTube TV, Sling, Hulu ve daha fazlası gibi hizmetler sunarak kablosuz HD içeriğine erişim sağlayan dahili dijital ayarlayıcı ile kablo kesmek artık çok kolay.Binlerce mevcut uygulamayı izlemenize, canlı şovları izlemenize ve izleme listenize göre önerilerde bulunmanıza olanak tanıyan Smart TV.Netflix, YouTube, Prime video Google Play TV ve Filmler, Disney +, Crave, HBO Max gibi entegre uygulamalar kesintisiz eğlenceyi garanti eder.Yerleşik Google Asistan, yalnızca bir sesli komutla önerilerinizi kişiselleştirmeniz için TV üzerinde kontrol sahibi olmanızı sağlar.Chromecast entegrasyonu, android veya iOS cihazınızdan TV'nizde filmlerin, şarkıların ve çok daha fazlasının kolayca akışını sağlar.Ses kontrolü ile zahmetsiz ses ayarı, film bulma veya akıllı kameraları görüntüleme için Alexa ile uyumlu.Sesli uzaktan kumanda, yalnızca bir düğmeye basarak etkinleşir ve uygulamaları basit komutlarla kontrol etmenizi sağlar.Çift bantlı Wi-Fi 5 ve Ethernet bağlantı noktası, en sevdiğiniz içeriklerin kesintisiz akışı için TV'nizle kablosuz bağlantı sunar.Bir eARC dahil 3 HDMI girişi, harici cihazlarla kolay bağlantı sağlar ve gecikmesiz eğlence için ses ve video kaynaklarını mükemmel şekilde senkronize eder.Siyah kaplamalı birinci sınıf tasarım, incelik katarken dört ayaklı stand kolay kurulum sağlar.Ücretsiz Google TV uygulaması, hareket halindeyken Android cihazınızdan filmlerin keyfini çıkarmanıza, izleme listesi oluşturmanıza ve en son sürümlere göz atmanıza olanak tanır.",
+      "price": 349.98,
+      "imageId": 3
+    },
+    {
+      "id": 4,
+      "name": "LG 50inc 4K UHD HDR LED webOS Smart TV",
+      "description": "4K UHD 3840 x 2160 yerel çözünürlüğe sahip 50inc LED ekran, her sahnede optimum renkler, netlik ve kontrast sunar.Aktif HDR desteği, resim yan yana ayarlamalar için HDR10 ve HLG'yi içerir, böylece her sahnedeki tüm detayların ve renklerin keyfini çıkarabilirsiniz.60Hz yenileme hızı, oyun ve filmlerinizde gecikme ve hareket bulanıklığı olmayan akıcı hareket sunar.Standart, Canlı, Sinema ve daha fazlası gibi yerleşik video modları, çeşitli içerik türlerini optimize eder ve iyileştirir.",
+      "price": 849.99,
+      "imageId": 4
+    },
+    {
+      "id": 5,
+      "name": "LG 50inc 4K UHD HDR LED webOS Smart TV",
+      "description": "4K Ultra HD (3840 x 2160) yerel çözünürlüğe sahip 50inc LED ekran, tüm eğlencenizi gerçeğe yakın netlikte sunar.60HZ yenileme hızı, hızlı aksiyonun hiçbir anını kaçırmamanız için kareden kareye bulanıklığı en aza indirir.a5 Gen 5 AI işlemci tarafından desteklenen Smart TV teknolojisi, her seferinde inanılmaz ses ve video kalitesi sunar.webOS işletim sistemi, sezgisel bir kullanıcı arabirimi ve özelleştirilmiş önerilerle en sevdiğiniz akış uygulamalarına erişim sunar.",
+      "price": 599.99,
+      "imageId": 5
+    },
+    {
+      "id": 6,
+      "name": "Sony BRAVIA XR A90K 48inc 4K UHD HDR OLED Smart",
+      "description": "48 inç televizyon, ayrıntılı görüntüleme için 3840 x 2160 ekran sunar.Akıllı Bilişsel İşlemci XR, yoğun kontrast ve gerçekçi renklendirme ile gerçek dünyada gördüğümüz şekli yeniden yaratır.XR OLED Contrast Pro, gerçeğe yakın derinlik ve parlaklıkla OLED'in güzelliğini oturma odanıza getiriyor.XR Triluminos Pro, geniş bir doğru renk yelpazesiyle görüntü kalitesini artırır.",
+      "price": 1599.98,
+      "imageId": 6
+    },
+    {
+      "id": 7,
+      "name": "Sony BRAVIA 75inc 4K UHD HDR LED Google TV Smart",
+      "description": "3840 x 2160 yerel çözünürlüğe sahip 75inc 4K LED ekran, inanılmaz netlik ve gerçekçilik sunar.XR Triluminos Pro, Full Array LED kontrastı ve XR Contrast Booster 10, inanmak için görmeniz gereken zenginlik için renk ve kontrastı geliştirir.Bilişsel İşlemci XR, doğal, gerçeğe yakın görüntü kalitesi sunmak için akıllı teknolojiyi kullanır.XR Motion Clarity, hızlı aksiyonun hiçbir anını kaçırmamanız için bulanıklığı ortadan kaldırır.4K yükseltme, kaybolan ayrıntı ve dokuyu geri yüklemek için içeriği otomatik olarak 4K'ya yakın çözünürlüğe yükseltir.",
+      "price": 1999.99,
+      "imageId": 7
+    },
+    {
+      "id": 8,
+      "name": "LG 75inc 4K UHD HDR LED webOS Smart TV",
+      "description": "4K Ultra HD (3840 x 2160) yerel çözünürlüğe sahip 75 inç LED ekran, tüm eğlencenizi gerçeğe yakın netlikte sunar.8,3 milyondan fazla 4K aktif piksel, her sahnede etkileyici bir gerçekçiliğin keyfini çıkarabilmeniz için tam HD'nin dört katı çözünürlük sağlar.60HZ yenileme hızı, hızlı aksiyonun hiçbir anını kaçırmamanız için kareden kareye bulanıklığı en aza indirir.Aktif HDR, HDR10 ve HLG desteğiyle sahne sahne resim ayarı sunar.20 watt alt hoparlör ve AI Sound, AI Acoustic Tuning Ready ve Clear Voice ses geliştirmeleri, sizi tamamen saf sesin içine çeker.",
+      "price": 1199.98,
+      "imageId": 8
+    }
   ]
 }
