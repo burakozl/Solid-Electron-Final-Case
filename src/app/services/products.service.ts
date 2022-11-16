@@ -16,4 +16,7 @@ export class ProductsService {
   public getProducts(){
     return this.httpClient.get<Product[]>(`${this.controllerUrl}`);
   }
+  public getProduct(productId:number){
+    return this.httpClient.get<Product>(`${this.controllerUrl}/${productId}`);
+  }
 }

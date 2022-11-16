@@ -1,0 +1,36 @@
+.product-detail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-image img{
+  border-radius: 30px 0px 0px 30px;
+}
+
+.product-info h2{
+  text-align: center;
+}
+
+
+@media (min-width: 450px) {
+  h1.heading {
+    font-size: 3.55em;
+  }
+}
+@media (min-width: 760px) {
+  h1.heading {
+    font-size: 3.05em;
+  }
+}
+@media (min-width: 900px) {
+  h1.heading {
+    font-size: 3.25em;
+    margin: 0 0 0.3em;
+  }
+  .card img{
+    transform: scale(1);
+  }
+  .card img:hover{
+    transform: scale(1);
+  }
+}

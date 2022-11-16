@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/models/product';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() { }
+  product!:Product;
+  productId!:number;
+  productDetailSubstances!:string[];
+
+  constructor(
+    private productsService:ProductsService,
+    private route:ActivatedRoute //ilgili id'yi yakalamak için faydalanılacak...
+    ) { }
 
   ngOnInit(): void {
+    this.productId = Number(this.route.snapshot.paramMap.get('id'));//activated route ile id'yi yakala... string geldiği için number ile tipini number'a çevir.
+    this.getProduct(this.productId);//istek yapılacak metot.
+  }
+
+
+  getProduct(id:number) {
+    this.productsService.getProduct(id).subscribe((res) => {//product serviceden ilgili json'a get isteği atıp ürünü getir.
+      if(res != null) this.product = res; //dönen response'u oluşturulan değişkene ata
+      //console.log(this.product);
+      this.productDetailSubstances = this.product.description.split('.');//gelen açıklamaları split metodu yardımıyla parçalayıp html tarafında liste şeklinde göster.
+      //console.log(this.productDetailSubstances);
+    });
   }
 
 }
