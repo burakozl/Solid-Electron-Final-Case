@@ -8,13 +8,13 @@ export class SearchTextService {
 
   constructor() { }
 
-  private subject = new Subject<string>();
+  private subject = new Subject<string>();//oluşturlan subject ile değişkene subscribaolup sürekli dinleme sağlanır...
 
     sendData(message: string) {
-        this.subject.next(message);
+        this.subject.next(message);//gelen değeri değişkene ata
     }
 
     getData(): Observable<string> {
-        return this.subject.asObservable();
+        return this.subject.asObservable();//değişkeni istenilen yere return et...
     }
 }
