@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/models/product';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { ProductsService } from 'src/app/services/products.service';
 import { SearchTextService } from 'src/app/services/search-text.service';
 
 @Component({
@@ -13,17 +15,27 @@ export class HeaderComponent implements OnInit {
   searchText:string = '';//ngmodel ile inputdan alınacak değeri bu deşikene atar...
   isLogin!:boolean;
   userName:string = '';
+  cartItems!:Product[];
+  totalPrice!:number;
 
   constructor(
     private searchTextService:SearchTextService,//oluşturulan servis'e yakaladığı değeri göndericek...
     private localStorageService:LocalStorageService,
-    private router:Router
+    private router:Router,
+    private productService:ProductsService
     ) { }
 
   ngOnInit(): void {
     this.localStorageServiceProcess();
     this.searchTextService.sendData(this.searchText);//observable aracılığıyla subscribers'lara text'i gönder
     this.onSearchTextChanged();//bu metot ile her değişiklik olduğunda yakalaya bilmek için html tarafında input eventi ile ilgili inputu yalayıp tekrar service içersindeki sendData metoduna gönderir...
+    this.productService.shopingCartModel$.subscribe((res) => {
+      this.cartItems = res;
+      this.totalPrice = 0;
+      this.cartItems.forEach((item) => {
+        this.totalPrice += item.price;
+      })
+    });
   }
 
   localStorageServiceProcess() {

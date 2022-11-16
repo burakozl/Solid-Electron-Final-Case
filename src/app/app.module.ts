@@ -14,7 +14,11 @@ import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { FilterProductPipe } from './pipes/filter-product.pipe';
-
+import { StoreModule } from '@ngrx/store';
+import { AppStoreState } from './store/app.state';
+import { appReducers } from './store/app.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ShopingCartComponent } from './pages/shoping-cart/shoping-cart.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { FilterProductPipe } from './pipes/filter-product.pipe';
     HeaderComponent,
     FooterComponent,
     ProductDetailComponent,
-    FilterProductPipe
+    FilterProductPipe,
+    ShopingCartComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,11 @@ import { FilterProductPipe } from './pipes/filter-product.pipe';
     ),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot<AppStoreState>(appReducers),
+    StoreDevtoolsModule.instrument({
+      autoPause: false,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

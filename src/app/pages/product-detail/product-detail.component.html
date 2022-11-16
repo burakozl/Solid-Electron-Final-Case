@@ -1,14 +1,21 @@
 <div class="container" *ngIf="product">
   <div class="row my-3 product-detail">
     <div class="col-lg-6 product-image">
-      <img [src]="'assets/products/product'+product.imageId+'.jpg'" width="500px" height="500px">
+      <img class="zoom" [src]="'assets/products/product'+product.imageId+'.jpg'" width="500px" height="500px">
     </div>
     <div class="col-lg-6 product-info">
       <h2 class="mb-3">{{product.name}}</h2>
       <ul *ngFor="let item of productDetailSubstances">
         <li>{{item}}</li>
       </ul>
-      <button style="width:100%;" class="btn btn-success">Sipariş Ver</button>
+      <div class="columns">
+        <ul class="price">
+          <li class="grey">
+            {{product.price | currency:'USD'}}
+          </li>
+        </ul>
+      </div>
+      <button style="width:100%;" class="btn btn-success" (click)="addToCart()">Sipariş Ver</button>
     </div>
   </div>
 </div>

@@ -1,7 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Product } from '../models/product';
+import { AppStoreState } from '../store/app.state';
+import { setShoppingCartModel } from '../store/shoppingCart/cart.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +13,25 @@ import { Product } from '../models/product';
 export class ProductsService {
   private controllerUrl = `${environment.apiUrl}/products`;
 
-  constructor(
-    private httpClient:HttpClient
-  ) { }
+  shopingCartModel$:Observable<Product[]>;
 
-  public getProducts(){
+  constructor(
+    private httpClient:HttpClient,
+    private store: Store<AppStoreState>
+  ) {
+    this.shopingCartModel$ = this.store.select( //Store'dan shopingCartModel'ı alıyoruz
+      (state) => state.cart.shoppingCartModel
+    );
+   }
+
+   saveProductToStore(shopingCart: Product) {
+    this.store.dispatch(setShoppingCartModel( {shopingCart}));
+  }
+
+  getProducts(){
     return this.httpClient.get<Product[]>(`${this.controllerUrl}`);
   }
-  public getProduct(productId:number){
+  getProduct(productId:number){
     return this.httpClient.get<Product>(`${this.controllerUrl}/${productId}`);//gelen id'ye göre ürünü get et...
   }
 }

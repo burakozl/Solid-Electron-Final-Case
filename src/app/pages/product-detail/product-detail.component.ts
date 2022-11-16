@@ -13,6 +13,7 @@ export class ProductDetailComponent implements OnInit {
   product!:Product;
   productId!:number;
   productDetailSubstances!:string[];
+  totalQuantity:number = 0;
 
   constructor(
     private productsService:ProductsService,
@@ -32,6 +33,10 @@ export class ProductDetailComponent implements OnInit {
       this.productDetailSubstances = this.product.description.split('.');//gelen açıklamaları split metodu yardımıyla parçalayıp html tarafında liste şeklinde göster.
       //console.log(this.productDetailSubstances);
     });
+  }
+
+  addToCart(){
+    this.productsService.saveProductToStore(this.product);
   }
 
 }
