@@ -1,4 +1,4 @@
-<header class="section-header">
+<header class="section-header" *ngIf="isLogin">
 
   <nav class="navbar navbar-dark navbar-expand p-0 bg-dark">
     <div class="container-fluid">
@@ -7,12 +7,12 @@
         <li class="nav-item"><a class="nav-link" data-abc="true">Ücretsiz teslimat</a></li>
         <li class="nav-item"><a class="nav-link" data-abc="true">İade Garantisi</a></li>
       </ul>
-      <ul class="navbar-nav d-flex align-items-center" *ngIf="!isLogin && !userName">
+      <ul class="navbar-nav d-flex align-items-center" *ngIf="!userName">
         <li class="nav-item">
           <button class="btn btn-success" (click)="login()">Giriş Yap</button>
         </li>
       </ul>
-      <ul class="navbar-nav d-flex align-items-center" *ngIf="isLogin && userName">
+      <ul class="navbar-nav d-flex align-items-center" *ngIf="userName">
         <li class="nav-item">
           <div class="d-flex flex-row">
             <img src="assets/img_avatar.png" class="rounded-circle" width="30" height="30">
