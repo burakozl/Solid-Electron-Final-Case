@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { FilterProductPipe } from './pipes/filter-product.pipe';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    FilterProductPipe
   ],
   imports: [
     BrowserModule,

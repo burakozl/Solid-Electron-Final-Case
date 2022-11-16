@@ -17,6 +17,12 @@
       "email": "furkan@furkan.com",
       "password": "35795123",
       "id": 3
+    },
+    {
+      "userName": "yigitsargin",
+      "email": "yigit@sargin.com",
+      "password": "987654321",
+      "id": 4
     }
   ],
   "products": [
