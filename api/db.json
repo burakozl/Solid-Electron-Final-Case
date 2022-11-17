@@ -23,6 +23,12 @@
       "email": "yigit@sargin.com",
       "password": "987654321",
       "id": 4
+    },
+    {
+      "userName": "aslıozel",
+      "email": "asli@asli.com",
+      "password": "12345678",
+      "id": 5
     }
   ],
   "products": [

@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   userName:string = '';
   cartItems!:Product[];
   totalPrice!:number;
+  clickedCategory:string = 'all';
 
   constructor(
     private searchTextService:SearchTextService,//oluşturulan servis'e yakaladığı değeri göndericek...
@@ -56,7 +57,11 @@ export class HeaderComponent implements OnInit {
   }
 
   onSearchTextChanged() {//input değeri değiştiğinde bu metot çağrılır..
-    this.searchTextService.sendData(this.searchText);//değişiklik servisteki sendData metoduna gönderilir...
+    this.searchTextService.sendDataSearch(this.searchText);//değişiklik servisteki sendData metoduna gönderilir...
+  }
+  showCategory(categoryName:string){
+    this.searchTextService.sendData(categoryName);
+    this.clickedCategory = categoryName;
   }
 
   login(){//navbarda bulunnan giriş yap butonu burayı teikler...
