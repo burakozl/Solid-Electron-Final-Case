@@ -1,7 +1,8 @@
 <div class="container" *ngIf="product">
   <div class="row my-3 product-detail">
     <div class="col-lg-6 product-image">
-      <img class="zoom" [src]="'assets/products/product'+product.imageId+'.jpg'" width="500px" height="500px">
+      <img class="zoom" *ngIf="product.id <= 8" [src]="'assets/tv-products/product'+product.imageId+'.jpg'" width="500px" height="500px">
+      <img class="zoom" *ngIf="product.id > 8" [src]="'assets/laptop-products/product'+product.imageId+'.jpg'" width="500px" height="500px">
     </div>
     <div class="col-lg-6 product-info">
       <h2 class="mb-3">{{product.name}}</h2>

@@ -6,7 +6,8 @@
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"*ngFor="let product of products | filterProduct:searchedTextPassed">
                       <div class="card">
                           <a class="img-card" [routerLink]="'/product-detail/' + product.id">
-                          <img [src]="'assets/products/product'+product.imageId+'.jpg'" />
+                          <img *ngIf="product.id <= 8" [src]="'assets/tv-products/product'+product.imageId+'.jpg'" />
+                          <img *ngIf="product.id > 8" [src]="'assets/laptop-products/product'+product.imageId+'.jpg'" />
                         </a>
                           <div class="card-content">
                               <h4 class="card-title">

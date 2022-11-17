@@ -14,7 +14,8 @@
               <td>
                 <div class="main">
                   <div class="d-flex">
-                    <img [src]="'assets/products/product'+item.imageId+'.jpg'" alt="" width="145" height="98">
+                    <img *ngIf="item.id <= 8 " [src]="'assets/tv-products/product'+item.imageId+'.jpg'" alt="" width="145" height="98">
+                    <img *ngIf="item.id > 8 " [src]="'assets/laptop-products/product'+item.imageId+'.jpg'" alt="" width="145" height="98">
                   </div>
                 </div>
               </td>
