@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -17,7 +18,8 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private productsService:ProductsService,
-    private route:ActivatedRoute //ilgili id'yi yakalamak için faydalanılacak...
+    private route:ActivatedRoute, //ilgili id'yi yakalamak için faydalanılacak...
+    private toastr:ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -37,6 +39,7 @@ export class ProductDetailComponent implements OnInit {
 
   addToCart(){
     this.productsService.saveProductToStore(this.product);
+    this.toastr.success("Ürün sepete eklendi...");
   }
 
 }
