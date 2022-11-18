@@ -19,6 +19,8 @@ import { AppStoreState } from './store/app.state';
 import { appReducers } from './store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ShopingCartComponent } from './pages/shoping-cart/shoping-cart.component';
+import { CoompleteOrderComponent } from './pages/coomplete-order/coomplete-order.component';
+import { CustomerOrdersComponent } from './pages/customer-orders/customer-orders.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ShopingCartComponent } from './pages/shoping-cart/shoping-cart.componen
     FooterComponent,
     ProductDetailComponent,
     FilterProductPipe,
-    ShopingCartComponent
+    ShopingCartComponent,
+    CoompleteOrderComponent,
+    CustomerOrdersComponent
   ],
   imports: [
     BrowserModule,
