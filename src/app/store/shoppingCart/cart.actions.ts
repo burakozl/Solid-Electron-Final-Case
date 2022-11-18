@@ -7,3 +7,7 @@ export const setShoppingCartModel = createAction(
   props<{ shopingCart: Product }>() //* inline bir interface yazdık.
   //* Bu interface'in içindeki property'ler, action'ın içindeki property'ler/payload olucak.
 );
+
+export const deleteShoppingCartModel = createAction(
+  '[Auth] Delete Shopping Cart Model'
+);

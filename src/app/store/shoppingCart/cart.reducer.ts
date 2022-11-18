@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { setShoppingCartModel } from './cart.actions';
+import { deleteShoppingCartModel, setShoppingCartModel } from './cart.actions';
 import { CartStoreState, initialCartStoreState } from './cart.state';
 
 export const cartReducer = createReducer<CartStoreState>(
@@ -12,5 +12,11 @@ export const cartReducer = createReducer<CartStoreState>(
         shoppingCartModel: [...currentState.shoppingCartModel ,action.shopingCart]
       };
     }
-  )
+  ),
+  on(deleteShoppingCartModel, (currentState) => {
+    return {
+      ...currentState,
+      shoppingCartModel: [],
+    };
+  })
 );
