@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -11,8 +13,11 @@ export class ShopingCartComponent implements OnInit {
 
   cartItems!:Product[];
   totalPrice!:number;
+  // quantity: number[] = [];
   constructor(
-    private productService:ProductsService
+    private productService:ProductsService,
+    private router:Router,
+    private toastr:ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -20,9 +25,23 @@ export class ShopingCartComponent implements OnInit {
       this.cartItems = res;
       this.totalPrice = 0;
       this.cartItems.forEach((item) => {
-        this.totalPrice += item.price
-      });
+        this.totalPrice += item.price;
     });
+    });
+  }
+  // onValueChange(quantityValue:number){
+  //   this.totalPrice = 0;
+  //   this.cartItems.forEach((item) => {
+  //     this.totalPrice += (item.price * quantityValue);
+  //   });
+  //   console.log(this.totalPrice);
+  // }
+  completeOrder(){
+    if(this.cartItems.length > 0){
+      this.router.navigateByUrl('/complete-order');
+    }else{
+      this.toastr.info("Siparişi tamamlamak için sepete bişeyler ekle...")
+    }
   }
 
 }
