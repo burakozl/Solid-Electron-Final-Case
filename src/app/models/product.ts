@@ -4,5 +4,7 @@ export interface Product{
   description:string,
   price:number,
   imageId:number,
-  catagoryId:number
+  catagoryId:number,
+  quantity?:number,
+  totalPrice?:number
 }

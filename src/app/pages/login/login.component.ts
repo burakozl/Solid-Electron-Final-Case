@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { SessionStatusService } from 'src/app/services/session-status.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private toastr:ToastrService,//kullanıcı mesajlarını göstermek için yüklemiş olduğumuz npm paket..
     private usersService:UsersService,// user httpreq. işlemleri için oluşturulan servis..
     private router:Router,
-    private localStorageService:LocalStorageService
+    private sessionStatusService:SessionStatusService
     ) { }
 
   ngOnInit(): void {
@@ -45,7 +45,8 @@ export class LoginComponent implements OnInit {
           }else{//ilgili data varsa
             if(res[0].password == this.loginForm.value.password){//girilen şifre get edilen data'nın şifresi ile aynı mı?
               this.toastr.success("Başarılı bir şekilde giriş yapıldı...");
-              this.localStrogeProcess(res[0].userName);
+              console.log(res);
+              this.saveSessionToStore(res[0].userName);
               this.router.navigateByUrl('/home');//home yönlendir...
             }else{
               this.toastr.error("Email yada şifre hatalı...","Sistem mesajı");
@@ -59,10 +60,12 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  localStrogeProcess(name:string){
-    this.localStorageService.set("isLogin",true); // giriş işlemi başarılı ise local storage değerini true yap...
-    this.localStorageService.set("userName",name);//userName değerini local storage kaydet.
-    this.localStorageService.login();//serviste bulunan login metodu ile subject değeri güncellenecek...
-    this.localStorageService.setUserName(name);//servicete bulunan userName değeri güncellenecek....
+  saveSessionToStore(userName:string){
+    const sessionInfo = {
+      userName:userName,
+      isLogin:true
+    };
+    this.sessionStatusService.saveSessionToStore(sessionInfo);
   }
+
 }

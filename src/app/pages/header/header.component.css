@@ -40,3 +40,11 @@
 .nav-link,.dropdown-item{
   cursor: pointer;
 }
+.shopingCart{
+  display: none;
+}
+@media (max-width: 768px) {
+  .shopingCart{
+    display: block;
+  }
+  }

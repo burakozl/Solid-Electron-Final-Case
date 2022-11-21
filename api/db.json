@@ -29,6 +29,18 @@
       "email": "asli@asli.com",
       "password": "12345678",
       "id": 5
+    },
+    {
+      "userName": "anılkavuk",
+      "email": "anil@kavuk.com",
+      "password": "12121212",
+      "id": 6
+    },
+    {
+      "userName": "sumeyracam",
+      "email": "sumeyra@cam.com",
+      "password": "12345678",
+      "id": 7
     }
   ],
   "products": [

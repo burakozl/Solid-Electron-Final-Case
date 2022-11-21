@@ -6,8 +6,6 @@ import { Subject } from 'rxjs';
 })
 export class LocalStorageService {
 
-  isUserLoggedIn: Subject<boolean> = new Subject<boolean>();
-  userName: Subject<string> = new Subject<string>();
 
   constructor() { }
 
@@ -18,28 +16,7 @@ export class LocalStorageService {
     return localStorage.getItem(key);
   }
 
-  setUserName(name:string){
-    if (localStorage.getItem('userName')) {
-      localStorage.setItem("userName",name);
-      this.userName.next(name);
-    }
-  }
-
-  login() {
-    if (localStorage.getItem('isLogin')) {
-      localStorage.setItem("isLogin","true");
-      this.isUserLoggedIn.next(true);
-    }
-  }
-
   remove(key: string) {
     localStorage.removeItem(key);
-  }
-
-  logout() {
-    this.isUserLoggedIn.next(false);
-    this.userName.next('');
-    localStorage.setItem("isLogin","false");
-    localStorage.setItem("userName","");
   }
 }

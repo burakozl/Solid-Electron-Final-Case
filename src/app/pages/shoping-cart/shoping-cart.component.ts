@@ -13,7 +13,7 @@ export class ShopingCartComponent implements OnInit {
 
   cartItems!:Product[];
   totalPrice!:number;
-  // quantity: number[] = [];
+
   constructor(
     private productService:ProductsService,
     private router:Router,
@@ -24,15 +24,16 @@ export class ShopingCartComponent implements OnInit {
     this.productService.shopingCartModel$.subscribe((res) => {
       this.cartItems = res;
       this.totalPrice = 0;
-      this.cartItems.forEach((item) => {
-        this.totalPrice += item.price;
-    });
+      this.cartItems.forEach((item:any) => {
+        this.totalPrice += item.totalPrice;
+      });
     });
   }
-  // onValueChange(quantityValue:number){
+  // onValueChange(index:number,quantityValue:number){
   //   this.totalPrice = 0;
   //   this.cartItems.forEach((item) => {
-  //     this.totalPrice += (item.price * quantityValue);
+  //     if(index === (item.id))  this.totalPrice += (item.price * quantityValue);
+
   //   });
   //   console.log(this.totalPrice);
   // }

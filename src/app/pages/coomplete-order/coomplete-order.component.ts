@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { ProductsService } from 'src/app/services/products.service';
+import { SessionStatusService } from 'src/app/services/session-status.service';
 
 @Component({
   selector: 'app-coomplete-order',
@@ -15,11 +16,13 @@ export class CoompleteOrderComponent implements OnInit {
 
   completeOrderForm!: FormGroup;
   orders!:Product[];
+  userName?:string;
 
   constructor(
     private formBuilder:FormBuilder,
     private productService:ProductsService,
     private localStorageService:LocalStorageService,
+    private sessionStatusService:SessionStatusService,
     private toastr:ToastrService,
     private router:Router
   ) { }
@@ -27,9 +30,15 @@ export class CoompleteOrderComponent implements OnInit {
   ngOnInit(): void {
     this.getOrders();
     this.createCompleteOrderForm();
+    this.getUserNameFromStore();
     if(this.localStorageService.get("Orders") === null){
       this.localStorageService.set("Orders",'[]');
     }
+  }
+  getUserNameFromStore() {
+    this.sessionStatusService.sessionStatusModel$.subscribe((res) => {
+      this.userName = res?.userName;
+    })
   }
 
   getOrders() {
@@ -63,10 +72,13 @@ export class CoompleteOrderComponent implements OnInit {
           id:item.id,
           name: item.name,
           price: item.price,
-          imageId: item.imageId
+          imageId: item.imageId,
+          totalPrice: item.totalPrice,
+          quantity: item.quantity
         }
       }),
       ...this.completeOrderForm.value,
+      userName: this.userName
     };
 
     oldOrder.push(newOrders);

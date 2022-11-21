@@ -1,4 +1,4 @@
-<header class="section-header" *ngIf="isLogin">
+<header class="section-header" *ngIf="sessionStatus?.isLogin">
 
   <nav class="navbar navbar-dark navbar-expand p-0 bg-dark">
     <div class="container-fluid">
@@ -7,12 +7,12 @@
         <li class="nav-item"><a class="nav-link" data-abc="true">Ücretsiz teslimat</a></li>
         <li class="nav-item"><a class="nav-link" data-abc="true">İade Garantisi</a></li>
       </ul>
-      <ul class="navbar-nav d-flex align-items-center" *ngIf="!userName">
+      <ul class="navbar-nav d-flex align-items-center" *ngIf="!sessionStatus?.userName">
         <li class="nav-item">
           <button class="btn btn-success" (click)="login()">Giriş Yap</button>
         </li>
       </ul>
-      <ul class="navbar-nav d-flex align-items-center" *ngIf="userName">
+      <ul class="navbar-nav d-flex align-items-center" *ngIf="sessionStatus?.userName">
         <li class="nav-item">
           <div class="d-flex flex-row">
             <img src="assets/img_avatar.png" class="rounded-circle" width="30" height="30">
@@ -20,8 +20,11 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle d-flex align-items-center" data-abc="true"
-            data-bs-toggle="dropdown"><span>{{userName}}</span></a>
+            data-bs-toggle="dropdown"><span>{{sessionStatus?.userName}}</span></a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li class="shopingCart">
+              <p><a class="btn link-dark" routerLink="/cart">Sepetim</a></p>
+            </li>
             <li>
               <p><a class="btn link-dark" routerLink="/customer-orders">Siparişlerim</a></p>
             </li>

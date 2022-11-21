@@ -5,10 +5,11 @@
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col" class="text-white">Product</th>
-              <th scope="col" class="text-white">Price</th>
-              <th scope="col" class="text-white">Quantity</th>
-              <th scope="col" class="text-white">Total</th>
+              <th scope="col" class="text-white">Ürün Resmi</th>
+              <th scope="col" class="text-white">Ürün Adı</th>
+              <th scope="col" class="text-white">Birim Fiyat</th>
+              <th scope="col" class="text-white">Adet</th>
+              <th scope="col" class="text-white">Toplam Fiyat</th>
             </tr>
           </thead>
           <tbody>
@@ -24,18 +25,27 @@
                 </div>
               </td>
               <td>
+                <h6>{{ item.name }}</h6>
+              </td>
+              <td>
                 <h6>{{item.price | currency:'USD'}}</h6>
+              </td>
+              <td>
+                <h6>{{item.quantity}}</h6>
+              </td>
+              <td>
+                <h6>{{item.totalPrice | currency:'USD'}}</h6>
               </td>
               <!-- <td>
                 <div class="counter">
                   <input class="input-number" type="number" value="1" min="1" max="10" [(ngModel)]="quantity[i]"
-                    (change)="onValueChange(quantity[i])">
+                    (change)="onValueChange(item.id,quantity[i])">
                 </div>
               </td>
               <td>
                 <h6>{{(quantity[i] ? quantity[i] : 1) * item.price | currency:'USD'}}</h6>
-              </td>
-            </tr> -->
+              </td> -->
+            </tr>
 
           </tbody>
         </table>

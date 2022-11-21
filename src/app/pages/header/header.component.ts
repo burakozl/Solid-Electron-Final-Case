@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
+import { Session } from 'src/app/models/session';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { SearchTextService } from 'src/app/services/search-text.service';
+import { SessionStatusService } from 'src/app/services/session-status.service';
 
 @Component({
   selector: 'app-header',
@@ -13,21 +15,20 @@ import { SearchTextService } from 'src/app/services/search-text.service';
 export class HeaderComponent implements OnInit {
 
   searchText:string = '';//ngmodel ile inputdan alınacak değeri bu deşikene atar...
-  isLogin!:boolean;
-  userName:string = '';
+  sessionStatus!:Session | null;
   cartItems!:Product[];
   totalPrice!:number;
   clickedCategory:string = 'all';
 
   constructor(
     private searchTextService:SearchTextService,//oluşturulan servis'e yakaladığı değeri göndericek...
-    private localStorageService:LocalStorageService,
+    private sessionStatusService:SessionStatusService,
     private router:Router,
     private productService:ProductsService
     ) { }
 
   ngOnInit(): void {
-    this.localStorageServiceProcess();
+    this.sessionStatusProcess();
     this.searchTextService.sendData(this.searchText);//observable aracılığıyla subscribers'lara text'i gönder
     this.onSearchTextChanged();//bu metot ile her değişiklik olduğunda yakalaya bilmek için html tarafında input eventi ile ilgili inputu yalayıp tekrar service içersindeki sendData metoduna gönderir...
     this.productService.shopingCartModel$.subscribe((res) => {
@@ -39,21 +40,10 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  localStorageServiceProcess() {
-    if(Boolean(this.localStorageService.get('isLogin')) === true){//localstorageDa islogin value değeri true ise..
-      this.isLogin = Boolean(this.localStorageService.get('isLogin'));//oluşturulan değişkene değeri ata...
-    }
-    if(this.localStorageService.get('userName') !== ''){//localstorageDa username value değeri boş değilse
-      this.userName = String(this.localStorageService.get('userName'));//oluşturulan değişkene ata...
-    }
-
-    this.localStorageService.isUserLoggedIn.subscribe((res) => {
-      this.isLogin = res;
-    });//ilgili serviste bulunan değere subscribe olunup güncel değer atanır....
-
-    this.localStorageService.userName.subscribe((res) => {
-    this.userName = res;
-    });//ilgili serviste bulunan değere subscribe olunup güncel değer atanır....
+  sessionStatusProcess() {
+    this.sessionStatusService.sessionStatusModel$.subscribe((res) => {
+      this.sessionStatus = res;
+    })
   }
 
   onSearchTextChanged() {//input değeri değiştiğinde bu metot çağrılır..
@@ -68,7 +58,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/login');//login page yönlendir..
   }
   logout(){//navbarda bulunnan dropdown içersindeki çıkış yap butonu burayı teikler...
-    this.localStorageService.logout();//servis içersinde subject değerleri next ile güncellenir...
+    this.sessionStatusService.deleteSessionFromStore();//store'da sessionı temizle
     this.router.navigateByUrl('/login');//login page yönlendir...
   }
 

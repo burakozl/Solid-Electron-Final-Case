@@ -14,7 +14,9 @@ export class ProductDetailComponent implements OnInit {
   product!:Product;
   productId!:number;
   productDetailSubstances!:string[];
-  totalQuantity:number = 0;
+  quantity:number = 1;
+  totalPrice!:number;
+
 
   constructor(
     private productsService:ProductsService,
@@ -30,15 +32,32 @@ export class ProductDetailComponent implements OnInit {
 
   getProduct(id:number) {
     this.productsService.getProduct(id).subscribe((res) => {//product serviceden ilgili json'a get isteği atıp ürünü getir.
-      if(res != null) this.product = res; //dönen response'u oluşturulan değişkene ata
+      if(res != null){
+        this.product = res; //dönen response'u oluşturulan değişkene ata
+        this.totalPrice = res.price;
+      }
       //console.log(this.product);
       this.productDetailSubstances = this.product.description.split('.');//gelen açıklamaları split metodu yardımıyla parçalayıp html tarafında liste şeklinde göster.
       //console.log(this.productDetailSubstances);
     });
   }
 
+  onValueChange(quantity:number){
+    this.totalPrice = (this.product.price * quantity);
+  }
+
   addToCart(){
-    this.productsService.saveProductToStore(this.product);
+    const product:Product = {
+      id:this.product.id,
+      name:this.product.name,
+      description:this.product.description,
+      totalPrice:this.totalPrice,
+      price:this.product.price,
+      imageId:this.product.imageId,
+      catagoryId:this.product.catagoryId,
+      quantity:this.quantity
+    }
+    this.productsService.saveProductToStore(product);
     this.toastr.success("Ürün sepete eklendi...");
   }
 
