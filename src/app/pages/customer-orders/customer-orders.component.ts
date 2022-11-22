@@ -34,7 +34,8 @@ export class CustomerOrdersComponent implements OnInit {
     let orders:any = this.localStrogeService.get('Orders');
     this.customerOrders = JSON.parse(orders);
     //console.log(this.customerOrders);
-    this.userOrder = this.customerOrders.filter((item:{userName:string}) => item.userName === this.customerName);
+    if(this.customerOrders){
+      this.userOrder = this.customerOrders.filter((item:{userName:string}) => item.userName === this.customerName);
     console.log("--",this.userOrder);
 
     this.totalPrice = 0;
@@ -43,5 +44,6 @@ export class CustomerOrdersComponent implements OnInit {
         this.totalPrice += item.totalPrice;
       });
     })
+    }
   }
 }

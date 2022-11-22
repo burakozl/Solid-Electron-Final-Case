@@ -3,9 +3,9 @@
   <nav class="navbar navbar-dark navbar-expand p-0 bg-dark">
     <div class="container-fluid">
       <ul class="navbar-nav d-none d-md-flex mr-auto">
-        <li class="nav-item"><a class="nav-link" data-abc="true">Kapıda ödeme</a></li>
-        <li class="nav-item"><a class="nav-link" data-abc="true">Ücretsiz teslimat</a></li>
-        <li class="nav-item"><a class="nav-link" data-abc="true">İade Garantisi</a></li>
+        <li class="nav-item"><a class="nav-link" data-abc="true" routerLink="/home">Anasayfa</a></li>
+        <li class="nav-item"><a class="nav-link" data-abc="true" routerLink="/home">Ürünler</a></li>
+        <li class="nav-item"><a class="nav-link" data-abc="true" routerLink="/cart">Sepet</a></li>
       </ul>
       <ul class="navbar-nav d-flex align-items-center" *ngIf="!sessionStatus?.userName">
         <li class="nav-item">

@@ -47,7 +47,6 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart(){
-<<<<<<< HEAD
     const product:Product = {
       id:this.product.id,
       name:this.product.name,
@@ -59,9 +58,6 @@ export class ProductDetailComponent implements OnInit {
       quantity:this.quantity
     }
     this.productsService.saveProductToStore(product);
-=======
-    this.productsService.saveProductToStore(this.product);
->>>>>>> 3d1c17cfeae5d4aaac43b2a4ef1d1fe2b5ee1ad7
     this.toastr.success("Ürün sepete eklendi...");
   }
 
